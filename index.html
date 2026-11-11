@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>쉽게보는 세금</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header class="top">
+      <h1>쉽게보는 세금</h1>
+      <p id="today" class="muted"></p>
+    </header>
+
+    <section aria-labelledby="soon-title">
+      <h2 id="soon-title">곧 해야 할 일 <small class="muted">기한 지남 · 7일 이내</small></h2>
+      <div id="soon" class="soon"></div>
+    </section>
+
+    <section aria-labelledby="status-title">
+      <h2 id="status-title">세금 현황 <small class="muted">신고·납부할 모든 세금 · 우리 기관에 해당하지 않으면 '해당'을 끄세요</small></h2>
+      <div class="table-wrap">
+        <table class="status">
+          <thead>
+            <tr><th>세금</th><th>주기</th><th>신고·납부처</th><th>다음 기한</th><th>진행</th><th>해당</th></tr>
+          </thead>
+          <tbody id="status"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="agency-title">
+      <h2 id="agency-title">관할 기관 <small class="muted">경기도 화성시 동탄 기준</small></h2>
+      <div id="agencies" class="agencies"></div>
+    </section>
+
+    <section id="calendar-box" aria-labelledby="month-title" class="calendar-box">
+      <div class="cal-head">
+        <button id="prev" type="button" aria-label="이전 달">‹</button>
+        <h2 id="month-title"></h2>
+        <button id="next" type="button" aria-label="다음 달">›</button>
+        <button id="this-month" type="button" class="link">이번 달</button>
+      </div>
+      <div class="weekdays" aria-hidden="true">
+        <span class="sun">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="sat">토</span>
+      </div>
+      <div id="calendar" class="calendar"></div>
+      <div id="legend" class="legend"></div>
+    </section>
+  </main>
+
+  <dialog id="detail">
+    <form method="dialog" class="detail-close"><button aria-label="닫기">✕</button></form>
+    <p id="d-type" class="badge"></p>
+    <h3 id="d-title"></h3>
+    <p id="d-due" class="due"></p>
+    <p id="d-basis" class="muted"></p>
+    <div class="progress"><div id="d-bar"></div></div>
+    <p id="d-count" class="muted"></p>
+    <ul id="d-list" class="checklist"></ul>
+    <div class="contacts">
+      <h4>담당 기관·부서</h4>
+      <ul id="d-contacts"></ul>
+      <label class="my-contact">
+        <span>우리 담당자 메모</span>
+        <input id="d-my" type="text" placeholder="예: 소득1팀 홍길동 조사관 031-934-0000">
+      </label>
+    </div>
+    <details id="d-how" class="howto">
+      <summary>신고하는 방법 보기</summary>
+      <p class="muted">신고하는 곳: <a id="d-where" target="_blank" rel="noopener"></a></p>
+      <ol id="d-steps"></ol>
+      <p id="d-tip" class="tip"></p>
+      <p class="muted small">메뉴 이름은 홈택스 개편에 따라 바뀔 수 있어요.</p>
+    </details>
+    <div class="detail-actions">
+      <button id="d-all" type="button">모두 체크</button>
+      <button id="d-reset" type="button" class="link">체크 지우기</button>
+    </div>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
